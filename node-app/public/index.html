@@ -9,6 +9,18 @@
 
   <body>
     <div id="map"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDa5WEtrkyjmhsNjx0Ub2zNmAEwj8-aPck",
+        authDomain: "gdgwolfpack.firebaseapp.com",
+        databaseURL: "https://gdgwolfpack.firebaseio.com",
+        storageBucket: "gdgwolfpack.appspot.com",
+      };
+      firebase.initializeApp(config);
+    </script>
     <script>
       var map;
       function initMap() {
