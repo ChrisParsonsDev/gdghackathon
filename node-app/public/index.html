@@ -16,6 +16,14 @@
           center: {lat: 30, lng: 0},
           zoom: 2
         });
+        var world_geometry = new google.maps.FusionTablesLayer({
+          query: {
+            select: 'geometry',
+            from: '1N2LBk4JHwWpOY4d9fobIn27lfnZ5MDy-NoqqRpk'
+          },
+          map: map,
+          suppressInfoWindows: true
+        });
       }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4gQsOfAdw9jSxRMEoYHik_nwdoRGtHGQ&callback=initMap"
