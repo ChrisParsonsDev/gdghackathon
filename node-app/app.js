@@ -19,7 +19,8 @@ var server = app.listen(process.env.PORT || '8080', function(){
 });
 
 var GoogleMapsLoader = require('google-maps');
-
+GoogleMapsLoader.KEY = 'AIzaSyBBbIYhZtC48MceLvgJ3-dIBjgezkSeu-g';
+GoogleMapsLoader.LIBRARIES = ['geometry'];
 GoogleMapsLoader.load(function(google) {
     new google.maps.Map(el, options);
 });
