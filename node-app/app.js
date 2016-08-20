@@ -8,8 +8,9 @@ var app = express();
 app.use(express.static('public'));
 
 app.get('/', function(req,res){
-  res.writeHead(200,{'Content-Type':'text/html'});
-  fs.createReadStream(__dirname + '/views/index.html','utf8').pipe(res);
+  // res.writeHead(200,{'Content-Type':'text/html'});
+  // fs.createReadStream(__dirname + '/views/index.html','utf8').pipe(res);
+  res.status(200).send("hello world")
 });
 
 var server = app.listen(process.env.PORT || '8080', function(){
