@@ -4,13 +4,15 @@
   "description": "Simple node app for GDG Hackathon",
   "main": "app.js",
   "scripts": {
-    "start":"node app.js",
-    "deploy":"gcloud app deploy",
+    "start": "node app.js",
+    "deploy": "gcloud app deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "dependencies":{
-    "express":"^4.13.4"
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "express": "^4.13.4",
+    "google-maps": "^3.2.1"
   }
 }
