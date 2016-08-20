@@ -36,7 +36,11 @@
           map: map,
           suppressInfoWindows: true
         });
+        google.maps.event.addListener(world_geometry, 'click', function(e) {
+          alert(e.row.Name.value);
+       });
       }
+
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4gQsOfAdw9jSxRMEoYHik_nwdoRGtHGQ&callback=initMap"
     async defer></script>
