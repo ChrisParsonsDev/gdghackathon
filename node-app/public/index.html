@@ -30,10 +30,11 @@
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Enter Food" name="srch-term" id="srch-term">
             <div class="input-group-btn">
-                <button class="btn btn-default" onclick="searchFood()"><i class="glyphicon glyphicon-search"></i></button>
+                
             </div>
         </div>
         </form>
+        <button class="btn btn-default" onclick="searchFood()"><i class="glyphicon glyphicon-search"></i></button>
         </div>
 
     </div>
@@ -74,11 +75,11 @@
           suppressInfoWindows: true
         });
         google.maps.event.addListener(world_geometry, 'click', function(e) {
-          searchFood(e.row.Name.value, e.latLng);
+          searchCountry(e.row.Name.value, e.latLng);
        });
       }
       var curMarker, prevMarker;
-      function searchFood(selected,loc){
+      function searchCountry(selected,loc){
         
         if(curMarker!=null){
           prevMarker = curMarker;
@@ -99,9 +100,16 @@
           infowindow.open(map, marker);
         });
         curMarker = marker;
+      }
 
+      function searchFood(){
+        var query = document.getElementById("srch-term").value;
+        for(var cont in json){
+          if(json[cont].food===query){
+            alert(cont);
 
-
+          }
+        }
       }
 
     </script>
