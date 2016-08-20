@@ -1,13 +1,15 @@
 'use strict';
 
 var express = require('express');
+var fs = require('fs');
 
 var app = express();
 
 app.use(express.static('public'));
 
 app.get('/', function(req,res){
-  res.status(200).send('Hello from the GDG Hackathon');
+  res.writeHead(200,{'Content-Type':'text/html'});
+  fs.createReadStream(__dirname + '/views/index.html','utf8').pipe(res);
 });
 
 var server = app.listen(process.env.PORT || '8080', function(){
@@ -16,7 +18,7 @@ var server = app.listen(process.env.PORT || '8080', function(){
 });
 
 var GoogleMapsLoader = require('google-maps');
- 
+
 GoogleMapsLoader.load(function(google) {
     new google.maps.Map(el, options);
 });
