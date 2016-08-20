@@ -67,13 +67,34 @@
           suppressInfoWindows: true
         });
         google.maps.event.addListener(world_geometry, 'click', function(e) {
-          alert(e.row.Name.value);
+          searchFood(e.row.Name.value, e.latLng);
        });
       }
+      var curMarker, prevMarker;
+      function searchFood(country,loc){
+        if(curMarker!=null){
+          prevMarker = curMarker;
+          prevMarker.setMap(null);
+        }
+        var information = 
+        '<div class="container-fluid">' + 
+        '' +
+        '</div>';
+        var infowindow = new google.maps.InfoWindow({
+          content: country 
+        });
+        
+        var marker = new google.maps.Marker({
+          position: loc,
+          map: map,
+          title: country
+        });
 
-      function searchFood(){
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+        curMarker = marker;
 
-        // search food function here
       }
 
     </script>
