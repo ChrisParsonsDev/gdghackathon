@@ -52,6 +52,13 @@
       firebase.initializeApp(config);
     </script>
     <script>
+      var json = {
+        "France":{"food":"Croissant"},
+        "Italy":{"food":"Pizza"},
+        "United States":{"food":"Big Mac"},
+        "Australia":{"food":"Kangaroo"}
+      };
+
       var map;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -71,29 +78,29 @@
        });
       }
       var curMarker, prevMarker;
-      function searchFood(country,loc){
+      function searchFood(selected,loc){
+        
         if(curMarker!=null){
           prevMarker = curMarker;
           prevMarker.setMap(null);
         }
-        var information = 
-        '<div class="container-fluid">' + 
-        '' +
-        '</div>';
+        
         var infowindow = new google.maps.InfoWindow({
-          content: country 
+          content: json[selected].food
         });
         
         var marker = new google.maps.Marker({
           position: loc,
           map: map,
-          title: country
+          title: selected.food
         });
 
         marker.addListener('click', function() {
           infowindow.open(map, marker);
         });
         curMarker = marker;
+
+
 
       }
 
